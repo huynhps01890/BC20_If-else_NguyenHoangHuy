@@ -156,36 +156,19 @@ function duDoanTamGiac(){
     var canh1 = document.getElementById("txtCanh1").value;
     var canh2 = document.getElementById("txtCanh2").value;
     var canh3 = document.getElementById("txtCanh3").value;
-    var loaitamgiac = "";
     
-    if(canh1 === canh2 || canh1 === canh3 || canh2 === canh3){
-        document.getElementById("txtduDoan").innerHTML = "Đây là tam giác cân";
-    }else if(canh1 === canh2 && canh2 === canh3 && canh1 === canh3){
+    
+    if(canh1 === canh2 && canh2 === canh3){
         document.getElementById("txtduDoan").innerHTML = "Đây là tam giác đều";
-    }else{
+    }else if(canh1 === canh2 || canh1 === canh3 || canh2 === canh3){
+        document.getElementById("txtduDoan").innerHTML = "Đây là tam giác cân";
+    }else if(canh1*canh1 === canh2*canh2 + canh3*canh3 || canh2*canh2 === canh1*canh1 + canh3*canh3 || canh3*canh3 === canh1*canh1 + canh2*canh2){
+        document.getElementById("txtduDoan").innerHTML = "Đây là tam giác vuông";
+    }
+    else{
         document.getElementById("txtduDoan").innerHTML = "Đây là 1 loại tam giác khác";
     }
 
-
-
-
-    // if(canh1 === canh2 || canh1 === canh3 || canh2 === canh3){
-    //     document.getElementById("txtduDoan").innerHTML = "Đây là tam giác cân";
-    // }else{
-    //     document.getElementById("txtduDoan").innerHTML = "Đây là 1 loại tam giác khác";
-    // }
-
-    // if(canh1 === canh2 && canh2 === canh3){
-    //     document.getElementById("txtduDoan").innerHTML = "Đây là tam giác đều";
-    // }else{
-    //     document.getElementById("txtduDoan").innerHTML = "Đây là 1 loại tam giác khác";
-    // }
-
-    // if(math.pow(canh1,2) === math.pow(canh2,2) + math.pow(canh3,2)){
-    //     document.getElementById("txtduDoan").innerHTML = "Đây là tam giác vuông";
-    // }else{
-    //     document.getElementById("txtduDoan").innerHTML = "Đây là 1 loại tam giác khác";
-    // }
 }
 
 document.getElementById("btnduDoan").onclick = duDoanTamGiac;
